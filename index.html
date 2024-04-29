@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .section {
+            height: 100vh;
+            background-attachment: fixed;
+            padding: 20px;
+        }
+
+        #section1 {
+            background-image: url('your-about-background.jpg');
+            color: #333;
+        }
+
+        #section2 {
+            background-image: url('your-projects-background.jpg');
+            color: #ffffff;
+        }
+
+        #section3 {
+            background-image: url('your-info-background.jpg');
+            color: #333;
+        }
+
+        /* Theme switcher styles */
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .theme-switch-wrapper {
+            padding-top: 20px;  /* Add padding at the top */
+            padding-left: 20px; /* Add padding on the left */
+}
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #9ABF15;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider:before {
+            background-color: #555;
+            transform: translateX(26px);
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #9ABF15;
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        /* Nighttime mode styles */
+        body.night-mode {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox">
+            <div class="slider round"></div>
+        </label>
+    </div>
+
+    <div id="section1" class="section">
+        <h1>About Me / Skills</h1>
+        <p>Your about me content here...</p>
+    </div>
+    <div id="section2" class="section">
+        <h1>Projects</h1>
+        <p>Your projects content here...</p>
+    </div>
+    <div id="section3" class="section">
+        <h1>Info</h1>
+        <p>Your info content here...</p>
+    </div>
+
+    <script>
+        document.getElementById('checkbox').addEventListener('change', function() {
+            document.body.classList.toggle('night-mode', this.checked);
+            localStorage.setItem('mode', this.checked ? 'night' : 'day');
+        });
+
+        window.onload = function() {
+            const isNight = localStorage.getItem('mode') === 'night';
+            document.getElementById('checkbox').checked = isNight;
+            if (isNight) {
+                document.body.classList.add('night-mode');
+            }
+        };
+    </script>
+</body>
+</html>
