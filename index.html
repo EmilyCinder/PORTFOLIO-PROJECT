@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.typekit.net/exv7wnx.css">
     <title>Portfolio Website</title>
     <style>
         body, html {
@@ -34,6 +35,11 @@
         }
 
         /* Theme switcher styles */
+        .theme-switch-wrapper {
+        padding-left: 20px; /* Add padding from the left */
+        padding-top: 20px; /* Add padding from the top */
+}
+
         .theme-switch {
             position: relative;
             display: inline-block;
@@ -46,11 +52,6 @@
             width: 0;
             height: 0;
         }
-
-        .theme-switch-wrapper {
-            padding-top: 20px;  /* Add padding at the top */
-            padding-left: 20px; /* Add padding on the left */
-}
 
         .slider {
             position: absolute;
@@ -98,9 +99,29 @@
             background-color: #333;
             color: #fff;
         }
+
+        /* Center and style the buttons */
+        .button-container {
+            text-align: center;
+            padding-top: 20px;
+             /* Add padding at the top */
+        }
+
+        .button-container img {
+            width: 150px; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
+            margin: 0 10px; /* Add some space between buttons */
+            cursor: pointer; /* Show pointer cursor on hover */
+        }
     </style>
 </head>
 <body>
+    <div class="button-container">
+        <img src="C:\Users\lyser\Music\OneDrive\Documents\PORTFOLIO PROJECT\Assets\nav images\about.png" alt="Button 1" id="button1">
+        <img src="C:\Users\lyser\Music\OneDrive\Documents\PORTFOLIO PROJECT\Assets\nav images\projects.png" alt="Button 2" id="button2">
+        <img src="C:\Users\lyser\Music\OneDrive\Documents\PORTFOLIO PROJECT\Assets\nav images\contact.png" alt="Button 3" id="button3">
+    </div>
+    
     <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
             <input type="checkbox" id="checkbox">
@@ -122,6 +143,28 @@
     </div>
 
     <script>
+        // Function to scroll to a section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Add click event listeners to the buttons
+        document.getElementById('button1').addEventListener('click', function() {
+            scrollToSection('section1');
+        });
+
+        document.getElementById('button2').addEventListener('click', function() {
+            scrollToSection('section2');
+        });
+
+        document.getElementById('button3').addEventListener('click', function() {
+            scrollToSection('section3');
+        });
+
+        // Theme switcher functionality (left as is)
         document.getElementById('checkbox').addEventListener('change', function() {
             document.body.classList.toggle('night-mode', this.checked);
             localStorage.setItem('mode', this.checked ? 'night' : 'day');
