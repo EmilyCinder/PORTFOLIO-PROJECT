@@ -37,9 +37,9 @@
 
         /* Theme switcher styles */
         .theme-switch-wrapper {
-        padding-left: 20px; /* Add padding from the left */
-        padding-top: 20px; /* Add padding from the top */
-}
+            padding-left: 20px; /* Add padding from the left */
+            padding-top: 20px; /* Add padding from the top */
+        }
 
         .theme-switch {
             position: relative;
@@ -105,7 +105,6 @@
         .button-container {
             text-align: center;
             padding-top: 20px;
-             /* Add padding at the top */
         }
 
         .button-container img {
@@ -113,6 +112,22 @@
             height: auto; /* Maintain aspect ratio */
             margin: 0 10px; /* Add some space between buttons */
             cursor: pointer; /* Show pointer cursor on hover */
+        }
+
+        /* Style for the typewriter text */
+        /* Style for the typewriter text */
+        .typewriter-text {
+            position: relative; /* Make position relative */
+            left: 5%; /* Move text to the left */
+            text-align: left; /* Align text to the left */
+            font-family: 'Arial', sans-serif; /* Change font family if needed */
+            font-size: 50px; /* Adjust font size as needed */
+            margin-top: 300px; /* Add margin at the top */
+        }
+
+        .typewriter-text p {
+            margin: 10px 0; /* Add margin between lines */
+            display: inline-block; /* Ensures each line is on the same line */
         }
     </style>
 </head>
@@ -131,9 +146,10 @@
     </div>
 
     <div id="section1" class="section">
-        <h1>About Me / Skills</h1>
-        <p>Your about me content here...</p>
+        <div class="typewriter-text" id="typewriter">
+        </div>
     </div>
+    
     <div id="section2" class="section">
         <h1>Projects</h1>
         <p>Your projects content here...</p>
@@ -151,27 +167,63 @@
                 section.scrollIntoView({ behavior: 'smooth' });
             }
         }
-
-        // Add click event listeners to the buttons
-        document.getElementById('button1').addEventListener('click', function() {
-            scrollToSection('section1');
-        });
-
-        document.getElementById('button2').addEventListener('click', function() {
-            scrollToSection('section2');
-        });
-
-        document.getElementById('button3').addEventListener('click', function() {
-            scrollToSection('section3');
-        });
-
-        // Theme switcher functionality (left as is)
-        document.getElementById('checkbox').addEventListener('change', function() {
-            document.body.classList.toggle('night-mode', this.checked);
-            localStorage.setItem('mode', this.checked ? 'night' : 'day');
-        });
-
+    
+        // Function to simulate the typewriter effect
+        function typeWriterEffect(textArray, speed) {
+            let i = 0;
+            let lineIndex = 0;
+            let text = ''; // Variable to hold the complete text
+            let typewriter = document.getElementById('typewriter');
+    
+            function type() {
+                if (i < textArray[lineIndex].length) {
+                    text += textArray[lineIndex].charAt(i); // Append characters to the complete text
+                    typewriter.innerHTML = text; // Update the HTML with the complete text
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    lineIndex++;
+                    i = 0;
+                    if (lineIndex < textArray.length) {
+                        text += '<br>'; // Add line break after each sentence
+                        typewriter.innerHTML = text; // Update the HTML with the complete text and line break
+                        setTimeout(type, speed); // Continue typing after line break
+                    }
+                }
+            }
+            type();
+        }
+    
+        // Start the typewriter effect and other functions when the page loads
         window.onload = function() {
+            // Start the typewriter effect
+            const textArray = [
+                "Welcome to My Portfolio",
+                "I am a web developer",
+                "Passionate about creating beautiful websites"
+            ]; // Array of sentences
+            const typingSpeed = 100; // Adjust the typing speed here (in milliseconds)
+            typeWriterEffect(textArray, typingSpeed);
+    
+            // Add click event listeners to the navigation buttons
+            document.getElementById('button1').addEventListener('click', function() {
+                scrollToSection('section1');
+            });
+    
+            document.getElementById('button2').addEventListener('click', function() {
+                scrollToSection('section2');
+            });
+    
+            document.getElementById('button3').addEventListener('click', function() {
+                scrollToSection('section3');
+            });
+    
+            // Toggle theme functionality
+            document.getElementById('checkbox').addEventListener('change', function() {
+                document.body.classList.toggle('night-mode', this.checked);
+                localStorage.setItem('mode', this.checked ? 'night' : 'day');
+            });
+    
             const isNight = localStorage.getItem('mode') === 'night';
             document.getElementById('checkbox').checked = isNight;
             if (isNight) {
@@ -179,5 +231,8 @@
             }
         };
     </script>
+    
+    
+    
 </body>
 </html>

@@ -2,3 +2,7 @@
     text-align: center;
     padding-top: 20px; /* Adjust padding as needed */
 }
+#typewriter-text {
+  font-family: monospace;
+  font-size: 24px;
+}
