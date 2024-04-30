@@ -133,7 +133,7 @@
             font-weight: 900;
             font-style: normal;; /* Change font family if needed */
             font-size: 30px; /* Adjust font size as needed */
-            margin-top: 250px;
+            margin-top: 200px;
             color: #558C03; /* Add margin at the top */
         }
 
@@ -148,7 +148,7 @@
  /* Icon container styles */
         .icon-container {
         position: absolute; /* Set position to absolute */
-        top: 525px; /* Adjust the top position to move the icons up */
+        top: 500px; /* Adjust the top position to move the icons up */
         left: 200px; /* Adjust the left position */
         display: flex;
         justify-content: flex-start; /* Align icons to the left */
@@ -186,6 +186,25 @@
         .icon-container a:nth-child(2) {
             animation: icon-fade-in 0.5s ease 1s forwards; /* Delay the animation for LinkedIn icon */
         }
+        /* Container for Resume Button */
+/* Container for Resume Button */
+.resume-button-container-left {
+    position: absolute; /* Set position to absolute */
+    left: 20px; /* Adjust the left position */
+    top: 20px; /* Adjust the top position */
+    text-align: left; /* Align Resume Button to the left */
+    padding-left: 178px; /* Increase padding from the left */
+    margin-top: 600px; /* Adjust the margin from the top */
+    display: inline-block; /* Ensure the container takes only the necessary width */
+}
+
+
+.resume-button-container-left img {
+    width: 150px; /* Set width same as other buttons */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+
         
     </style>
 </head>
@@ -211,6 +230,9 @@
     <div class="icon-container">
         <a href="https://github.com/yourusername" target="_blank"><img src="C:\Users\lyser\Music\OneDrive\Documents\PORTFOLIO PROJECT\Assets\git.png" alt="GitHub" width="50" height="50"></a>
         <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><img src="C:\Users\lyser\Music\OneDrive\Documents\PORTFOLIO PROJECT\Assets\link.png" alt="LinkedIn" width="50" height="50"></a>
+    </div>
+    <div class="resume-button-container-left">
+        <img src="C:\Users\lyser\Music\OneDrive\Documents\PORTFOLIO PROJECT\Assets\nav images\resume.png" alt="Resume Button" id="resume-button">
     </div>
     <div id="section2" class="section">
         <h1>Projects</h1>
