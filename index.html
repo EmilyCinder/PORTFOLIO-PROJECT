@@ -41,10 +41,14 @@
         }
 
         /* Theme switcher styles */
+        /* Theme switcher styles */
         .theme-switch-wrapper {
-            padding-left: 20px; /* Add padding from the left */
-            padding-top: 20px; /* Add padding from the top */
+            position: absolute; /* Change position to absolute */
+            top: 20px; /* Adjust top position */
+            left: 20px; /* Adjust left position */
         }
+
+/* Rest of your CSS styles */
 
         .theme-switch {
             position: relative;
@@ -128,8 +132,8 @@
             font-family: font-family: "owners", sans-serif;
             font-weight: 900;
             font-style: normal;; /* Change font family if needed */
-            font-size: 50px; /* Adjust font size as needed */
-            margin-top: 300px;
+            font-size: 30px; /* Adjust font size as needed */
+            margin-top: 250px;
             color: #558C03; /* Add margin at the top */
         }
 
@@ -140,6 +144,49 @@
         body.night-mode .typewriter-text {
         color: #fff; /* Text color for dark mode */
 }
+
+ /* Icon container styles */
+        .icon-container {
+        position: absolute; /* Set position to absolute */
+        top: 525px; /* Adjust the top position to move the icons up */
+        left: 200px; /* Adjust the left position */
+        display: flex;
+        justify-content: flex-start; /* Align icons to the left */
+        align-items: center;
+        }
+        
+
+        /* Icon styles */
+        .icon-container a {
+            margin: 0 10px;
+            opacity: 0.7; /* Initial opacity for the icons */
+            transition: opacity 0.3s ease; /* Smooth transition effect */
+        }
+
+        .icon-container a:hover {
+            opacity: 1; /* Increase opacity on hover */
+        }
+
+        /* Animation for icons */
+        @keyframes icon-fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 0.7;
+                transform: translateY(0);
+            }
+        }
+
+        .icon-container a:nth-child(1) {
+            animation: icon-fade-in 0.5s ease 0.5s forwards; /* Delay the animation for GitHub icon */
+        }
+
+        .icon-container a:nth-child(2) {
+            animation: icon-fade-in 0.5s ease 1s forwards; /* Delay the animation for LinkedIn icon */
+        }
+        
     </style>
 </head>
 <body>
@@ -160,10 +207,14 @@
         <div class="typewriter-text" id="typewriter">
         </div>
     </div>
-    
+    <!-- Icon container -->
+    <div class="icon-container">
+        <a href="https://github.com/yourusername" target="_blank"><img src="C:\Users\lyser\Music\OneDrive\Documents\PORTFOLIO PROJECT\Assets\git.png" alt="GitHub" width="50" height="50"></a>
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><img src="C:\Users\lyser\Music\OneDrive\Documents\PORTFOLIO PROJECT\Assets\link.png" alt="LinkedIn" width="50" height="50"></a>
+    </div>
     <div id="section2" class="section">
         <h1>Projects</h1>
-        <p>Your projects content here...</p>
+        <p></p>
     </div>
     <div id="section3" class="section">
         <h1>Info</h1>
